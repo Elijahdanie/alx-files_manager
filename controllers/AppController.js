@@ -2,14 +2,14 @@ import db from "../utils/db";
 import redis from "../utils/redis";
 
 export default class AppController {
-  static getStatus(req, res) {
+  static async getStats(req, res) {
     return res.status(200).json({
-      users: db.nbUsers(),
-      files: db.nbFiles(),
+      users: await db.nbUsers(),
+      files: await db.nbFiles(),
     });
   }
 
-  static getStats(req, res) {
+  static getStatus(req, res) {
     res.status(200).json({
       db: db.isAlive(),
       redis: redis.isAlive(),
