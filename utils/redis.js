@@ -30,7 +30,7 @@ class RedisClient {
   async set(key, value, duration) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        this.client.set(key, value, (err, reply) => {
+        this.client.set(key, value, 'EX', (err, reply) => {
           if (err) {
             reject(err);
           } else {
