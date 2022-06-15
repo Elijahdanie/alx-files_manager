@@ -1,7 +1,7 @@
 import db from "../utils/db";
 import sha1 from "sha1";
 
-export default class UsersController {
+export default class UserController {
   static async postNew(req, res) {
     const { password, email } = req.body;
     if (!email) res.status(400).json({ error: "Missing email" });
