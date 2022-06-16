@@ -1,12 +1,5 @@
-import redisClient from './utils/redis';
-
-(async () => {
-  console.log(redisClient.isAlive());
-  console.log(await redisClient.get('myKey'));
-  await redisClient.set('myKey', 12, 5);
-  console.log(await redisClient.get('myKey'));
-
-  setTimeout(async () => {
-    console.log(await redisClient.get('myKey'));
-  }, 1000 * 10);
-})();
+let file = "hey check"
+let b64 = Buffer.from(file).toString('base64');
+console.log(b64);
+let decoded = Buffer.from(b64, 'base64').toString('utf-8');
+console.log(decoded)
